@@ -14,7 +14,7 @@ project "LibChartCtrl2"
 		"Src"
 	}
 
-	characterset { "Default" }
+	characterset  "Unicode"
 
     files
     {
