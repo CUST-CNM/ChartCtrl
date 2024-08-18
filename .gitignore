@@ -375,3 +375,5 @@ work_*.json
 **.vcxproj.filters
 **.vcxproj.user
 
+VersionNo.h
+
