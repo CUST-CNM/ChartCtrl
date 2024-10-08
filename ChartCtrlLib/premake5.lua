@@ -9,12 +9,12 @@ project "libChartCtrl2"
     pchheader "stdafx.h"
     pchsource "%{prj.location}/Src/stdafx.cpp"
 
-	includedirs
-	{
-		"Src"
-	}
+		includedirs
+		{
+			"Src"
+		}
 
-	characterset  "Unicode"
+		characterset  "Unicode"
 
     files
     {
@@ -22,24 +22,24 @@ project "libChartCtrl2"
         "Src/**.cpp",
     }
 
-	defines
-	{
-		"WIN32",
-		"_WINDOWS",
-		"_USE_MATH_DEFINES",
-		"_LIB"
-	}
+		defines
+		{
+			"WIN32",
+			"_WINDOWS",
+			"_USE_MATH_DEFINES",
+			"_LIB"
+		}
 
-	prebuildcommands {".\\verbuild.exe .\\Src\\VersionNo.h 1.2.*.+ -d2000 -xFp -b1.0.0.0 -e10.100.9999.100  -rd -u -t5"}
+		prebuildcommands {".\\verbuild.exe .\\Src\\VersionNo.h 1.2.*.+ -d2000 -xFp -b1.0.0.0 -e10.100.9999.100  -rd -u -t5"}
 
     filter "system:windows"
-        staticruntime "On"
+      staticruntime "On"
 
     filter "configurations:Debug"
-		defines "_DEBUGS"
-        runtime "Debug"
-        symbols "on"
+			defines "_DEBUGS"
+      runtime "Debug"
+      symbols "on"
 
     filter "configurations:Release"
-        runtime "Release"
-        optimize "on"
+      runtime "Release"
+      optimize "on"
