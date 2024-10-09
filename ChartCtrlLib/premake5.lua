@@ -1,25 +1,20 @@
 project "libChartCtrl2"
     kind "StaticLib"
-    language "C++"
 		cppdialect "C++17"
+    language "C++"
 
     targetdir ("../bin/" .. outputdir .. "/%{prj.name}")
     objdir ("../bin-int/" .. outputdir .. "/%{prj.name}")
 
     pchheader "stdafx.h"
-    pchsource "%{prj.location}/Src/stdafx.cpp"
-
-		includedirs
-		{
-			"Src"
-		}
+    pchsource "src/stdafx.cpp"
 
 		characterset  "Unicode"
 
     files
     {
-        "Src/**.h",
-        "Src/**.cpp",
+        "src/**.h",
+        "src/**.cpp",
     }
 
 		defines
