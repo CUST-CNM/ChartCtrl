@@ -33,13 +33,15 @@ project "libChartCtrl2"
 	prebuildcommands {".\\verbuild.exe .\\Src\\VersionNo.h 1.2.*.+ -d2000 -xFp -b1.0.0.0 -e10.100.9999.100  -rd -u -t5"}
 
     filter "system:windows"
-        staticruntime "On"
+        systemversion "latest"
 
     filter "configurations:Debug"
-		defines "_DEBUGS"
-        runtime "Debug"
-        symbols "on"
+			defines {"_DEBUGS", "_AFXDLL"}
+      runtime "Debug"
+      symbols "on"
+			staticruntime "off"
 
     filter "configurations:Release"
-        runtime "Release"
-        optimize "on"
+      runtime "Release"
+      optimize "on"
+			staticruntime "On"
