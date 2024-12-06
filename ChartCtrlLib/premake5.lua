@@ -1,36 +1,31 @@
 project "libChartCtrl2"
     kind "StaticLib"
-    language "C++"
 		cppdialect "C++17"
+    language "C++"
 
     targetdir ("../bin/" .. outputdir .. "/%{prj.name}")
     objdir ("../bin-int/" .. outputdir .. "/%{prj.name}")
 
     pchheader "stdafx.h"
-    pchsource "%{prj.location}/Src/stdafx.cpp"
+    pchsource "src/stdafx.cpp"
 
-	includedirs
-	{
-		"Src"
-	}
-
-	characterset  "Unicode"
+		characterset  "Unicode"
 
     files
     {
-        "Src/**.h",
-        "Src/**.cpp",
+        "src/**.h",
+        "src/**.cpp",
     }
 
-	defines
-	{
-		"WIN32",
-		"_WINDOWS",
-		"_USE_MATH_DEFINES",
-		"_LIB"
-	}
+		defines
+		{
+			"WIN32",
+			"_WINDOWS",
+			"_USE_MATH_DEFINES",
+			"_LIB"
+		}
 
-	prebuildcommands {".\\verbuild.exe .\\Src\\VersionNo.h 1.2.*.+ -d2000 -xFp -b1.0.0.0 -e10.100.9999.100  -rd -u -t5"}
+		prebuildcommands {".\\verbuild.exe .\\Src\\VersionNo.h 1.2.*.+ -d2000 -xFp -b1.0.0.0 -e10.100.9999.100  -rd -u -t5"}
 
     filter "system:windows"
         systemversion "latest"
